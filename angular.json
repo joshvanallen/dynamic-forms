@@ -1,0 +1,176 @@
+{
+  "version": 1,
+  "projects": {
+    "dynamic-forms": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/dynamic-forms",
+      "sourceRoot": "apps/dynamic-forms/src",
+      "prefix": "jva",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/dynamic-forms",
+            "index": "apps/dynamic-forms/src/index.html",
+            "main": "apps/dynamic-forms/src/main.ts",
+            "polyfills": "apps/dynamic-forms/src/polyfills.ts",
+            "tsConfig": "apps/dynamic-forms/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/dynamic-forms/src/favicon.ico",
+              "apps/dynamic-forms/src/assets"
+            ],
+            "styles": ["apps/dynamic-forms/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/dynamic-forms/src/environments/environment.ts",
+                  "with": "apps/dynamic-forms/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "dynamic-forms:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "dynamic-forms:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "dynamic-forms:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/dynamic-forms/tsconfig.app.json",
+              "apps/dynamic-forms/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/dynamic-forms/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/dynamic-forms/jest.config.js",
+            "tsConfig": "apps/dynamic-forms/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/dynamic-forms/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "dynamic-forms-e2e": {
+      "root": "apps/dynamic-forms-e2e",
+      "sourceRoot": "apps/dynamic-forms-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/dynamic-forms-e2e/cypress.json",
+            "tsConfig": "apps/dynamic-forms-e2e/tsconfig.e2e.json",
+            "devServerTarget": "dynamic-forms:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "dynamic-forms:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/dynamic-forms-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/dynamic-forms-e2e/**/*"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular",
+    "analytics": false
+  },
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "dynamic-forms"
+}
