@@ -1,13 +1,16 @@
-<ng-container *ngFor="let config of configurations;">
-  <div class="display:flex; flex-direction:column">
-    <jva-form-field-renderer [formGroup]="formGroup" [configuration]="config"></jva-form-field-renderer>
-  </div>
-</ng-container>
+<div>
+  <p>using Declaritive Forms</p>
+<jva-declaritive-form [configurations]="configurations"></jva-declaritive-form>
+</div>
 
-
+<div>
+<p>using ComponentFactoryResolver</p>
+<jva-implicit-form [configurations]="configurations"></jva-implicit-form>
+</div>
+<!-- 
 <div style="display: flex; flex-direction: row;">
 <button mat-raised-button (click)="showFormGroupValues();" type="button">
   show values
 </button>
 </div>
-{{values | json}}
+{{values | json}} -->

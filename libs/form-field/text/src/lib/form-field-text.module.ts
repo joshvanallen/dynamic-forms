@@ -13,6 +13,5 @@ import { JVATextFormFieldComponent } from './text.component';
   imports: [CommonModule, MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, ReactiveFormsModule, FormsModule ],
   declarations: [JVATextFormFieldComponent],
   exports: [JVATextFormFieldComponent],
-  entryComponents: [JVATextFormFieldComponent]
 })
 export class FormFieldTextModule {}

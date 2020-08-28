@@ -32,7 +32,6 @@ export class JVATextFormFieldComponent implements OnChanges, OnInit, BaseFormFie
 
     ngOnChanges(){
         const validators: ValidatorFn[] = [];
-
         this._inputCheck();
 
         this.label = this.configuration.label;

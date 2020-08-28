@@ -3,11 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { FormFieldTextModule } from '@jva/form-field/text';
 
-import { JVAFormFieldRenderer } from './form-field-renderer.component';
+import { JVAImplicitFormFieldRenderer } from './implicit-form-field-renderer.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { JVAImplicitFormComponent } from './implicit-form.component';
+import { JVADeclaritiveFormFieldRendererComponent } from './declaritive-form-field-renderer.component';
+import { JVADeclaritiveFormComponent } from './declaritive-form.component';
 
 @NgModule({
-  imports: [CommonModule, FormFieldTextModule],
-  declarations: [JVAFormFieldRenderer],
-  exports: [JVAFormFieldRenderer]
+  imports: [CommonModule, FormFieldTextModule, ReactiveFormsModule, FormsModule],
+  declarations: [JVAImplicitFormFieldRenderer, JVADeclaritiveFormComponent,JVAImplicitFormComponent, JVADeclaritiveFormFieldRendererComponent],
+  exports: [JVAImplicitFormComponent, JVADeclaritiveFormComponent]
 })
 export class FormFieldRendererModule {}

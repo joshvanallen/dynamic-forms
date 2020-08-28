@@ -3,18 +3,19 @@ import {FormFieldType, FormFieldConfiguration, BaseFormField} from '@jva/form-fi
 import { JVATextFormFieldComponent } from '@jva/form-field/text';
 import { FormGroup } from '@angular/forms';
 @Component({
-    selector:'jva-form-field-renderer',
+    selector:'jva-implicit-form-field-renderer',
     template:`
     `,
     styles:[`
     `]
 })
-export class JVAFormFieldRenderer implements OnInit {
+export class JVAImplicitFormFieldRenderer implements OnInit {
     @Input() configuration: FormFieldConfiguration<any>;
     @Input() formGroup: FormGroup;
 
     private formFields = {
-        [FormFieldType.TEXT]: JVATextFormFieldComponent
+        [FormFieldType.TEXT]: JVATextFormFieldComponent,
+        [FormFieldType.ADDRESS]: JVATextFormFieldComponent
     }
     
     constructor(private _cfr:ComponentFactoryResolver, private _viewContainerRef:ViewContainerRef){}
