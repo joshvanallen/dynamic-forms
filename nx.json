@@ -43,6 +43,9 @@
     },
     "form-field-shared": {
       "tags": []
+    },
+    "builder": {
+      "tags": []
     }
   }
 }

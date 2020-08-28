@@ -1,6 +1,7 @@
 
 
 This is the base model for the inputs
+```
 {
     inputType: enum;
     required: boolean;
@@ -13,6 +14,7 @@ This is the base model for the inputs
         [validatorType]:message
     }
 }
+```
 
 Starting with:
 input[type="text]
@@ -20,8 +22,7 @@ address field
 Nested forms
 
 TODOS:
-Update Input-Controls to FormFields
 
 ## Live Stream dates
 8/27/2020
-
+8/28/2020
