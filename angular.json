@@ -286,38 +286,6 @@
           "style": "scss"
         }
       }
-    },
-    "form-field-number": {
-      "projectType": "library",
-      "root": "libs/form-field/number",
-      "sourceRoot": "libs/form-field/number/src",
-      "prefix": "jva",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/form-field/number/tsconfig.lib.json",
-              "libs/form-field/number/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/form-field/number/**/*"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/form-field/number/jest.config.js",
-            "tsConfig": "libs/form-field/number/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/form-field/number/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
-        }
-      }
     }
   },
   "cli": {
