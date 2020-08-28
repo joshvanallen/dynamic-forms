@@ -28,6 +28,24 @@
     "dynamic-forms-e2e": {
       "tags": [],
       "implicitDependencies": ["dynamic-forms"]
+    },
+    "input-controls-text": {
+      "tags": []
+    },
+    "input-shared": {
+      "tags": []
+    },
+    "form-field-renderer": {
+      "tags": []
+    },
+    "form-field-text": {
+      "tags": []
+    },
+    "form-field-shared": {
+      "tags": []
+    },
+    "form-field-number": {
+      "tags": []
     }
   }
 }
