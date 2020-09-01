@@ -20,9 +20,3 @@ Starting with:
 input[type="text]
 address field
 Nested forms
-
-TODOS:
-
-## Live Stream dates
-8/27/2020
-8/28/2020

@@ -11,18 +11,26 @@ import { JVATextFormFieldComponent } from './text.component';
 import { JVA_FORM_FIELD, FormFieldType } from '@jva/form-field/shared';
 
 @NgModule({
-  imports: [CommonModule, MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, ReactiveFormsModule, FormsModule],
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
   declarations: [JVATextFormFieldComponent],
   exports: [JVATextFormFieldComponent],
   providers: [
     {
       provide: JVA_FORM_FIELD,
-      useFactory: ()=> ({
+      useFactory: () => ({
         type: FormFieldType.TEXT,
-        component: JVATextFormFieldComponent
+        component: JVATextFormFieldComponent,
       }),
-      multi:true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class FormFieldTextModule {}

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {BuilderModule} from '@jva/builder';
+import { BuilderModule } from '@jva/builder';
 
 import { AppComponent } from './app.component';
 import { AppFormFieldModule } from './app-form-field.module';

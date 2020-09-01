@@ -9,7 +9,12 @@ import { JVADeclaritiveFormComponent } from './declaritive-form.component';
 
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule, FormsModule],
-  declarations: [JVAImplicitFormFieldRenderer, JVADeclaritiveFormComponent,JVAImplicitFormComponent, JVADeclaritiveFormFieldRendererComponent],
-  exports: [JVAImplicitFormComponent, JVADeclaritiveFormComponent]
+  declarations: [
+    JVAImplicitFormFieldRenderer,
+    JVADeclaritiveFormComponent,
+    JVAImplicitFormComponent,
+    JVADeclaritiveFormFieldRendererComponent,
+  ],
+  exports: [JVAImplicitFormComponent, JVADeclaritiveFormComponent],
 })
 export class FormFieldRendererModule {}

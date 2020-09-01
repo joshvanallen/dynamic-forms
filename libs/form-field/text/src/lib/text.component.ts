@@ -1,75 +1,81 @@
-import { Component, Input, ChangeDetectionStrategy } from "@angular/core";
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup, FormControl, Validators, ValidatorFn } from '@angular/forms';
 
 import { TextFormFieldConfiguration, BaseFormControl } from '@jva/form-field/shared';
 
 @Component({
-    selector: 'jva-text-form-field',
-    template: `
+  selector: 'jva-text-form-field',
+  template: `
     <mat-form-field *ngIf="show">
-        <mat-label>{{label}}</mat-label>
-        <input matInput type="text" [formControl]="formControl" [pattern]="pattern">
-        <button mat-button *ngIf="formControl.value && !disable" matSuffix mat-icon-button aria-label="Clear" (click)="clearValue();">
-            <mat-icon>close</mat-icon>
-        </button>
+      <mat-label>{{ label }}</mat-label>
+      <input matInput type="text" [formControl]="formControl" [pattern]="pattern" />
+      <button
+        mat-button
+        *ngIf="formControl.value && !disable"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="clearValue()"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
     </mat-form-field>
 
     <p *ngIf="!show">this field is hidden</p>
-    `,
-    styles: [],
-    changeDetection: ChangeDetectionStrategy.OnPush
+  `,
+  styles: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class JVATextFormFieldComponent extends BaseFormControl<TextFormFieldConfiguration> {
+  label: string;
+  required: boolean = false;
+  disable: boolean = false;
+  show: boolean = false;
+  formControl: FormControl = new FormControl();
+  pattern: RegExp = null;
 
-    label: string;
-    required:boolean = false;
-    disable: boolean = false;
-    show:boolean = false;
-    formControl: FormControl = new FormControl();
-    pattern: RegExp = null;
+  ngOnInit() {
+    this._inputCheck();
+    this.formControl.setValue(this.configuration.value);
+    this.formGroup.addControl(this.configuration.id, this.formControl);
+  }
 
-    ngOnInit(){
-        this._inputCheck();
-        this.formControl.setValue(this.configuration.value);
-        this.formGroup.addControl(this.configuration.id, this.formControl);
-    }    
+  clearValue() {
+    this.formControl.setValue('');
+  }
 
-    clearValue(){
-        this.formControl.setValue('');
+  setupField() {
+    const validators: ValidatorFn[] = [];
+    this._inputCheck();
+    this.label = this.configuration.label;
+    this.required = this.configuration.required;
+    this.disable = this.configuration.disable;
+    this.show = this.configuration.show;
+    this.pattern = this.configuration.pattern;
+
+    if (this.disable || !this.show) {
+      this.formControl.disable();
+      this.formControl.updateValueAndValidity();
+    } else {
+      this.formControl.enable();
+      if (this.required) {
+        validators.push(Validators.required);
+      }
+      if (this.pattern) {
+        validators.push(Validators.pattern(this.pattern));
+      }
+      this.formControl.setValidators(validators);
+      this.formControl.updateValueAndValidity();
+    }
+  }
+
+  private _inputCheck() {
+    if (!this.formGroup) {
+      throw new Error('Developer Error: Please include a form group.');
     }
 
-    setupField(){
-        const validators: ValidatorFn[] = [];
-        this._inputCheck();
-        this.label = this.configuration.label;
-        this.required = this.configuration.required;
-        this.disable = this.configuration.disable;
-        this.show = this.configuration.show;
-        this.pattern = this.configuration.pattern;
-
-        if(this.disable || !this.show){
-            this.formControl.disable();
-            this.formControl.updateValueAndValidity();
-        }else{
-            this.formControl.enable();
-            if(this.required){
-                validators.push(Validators.required);
-            }
-            if(this.pattern){
-                validators.push(Validators.pattern(this.pattern))
-            }
-            this.formControl.setValidators(validators);
-            this.formControl.updateValueAndValidity();
-        }
+    if (!this.configuration) {
+      throw new Error('Developer Error: Please include a configuration');
     }
-
-    private _inputCheck(){
-        if(!this.formGroup){
-            throw new Error('Developer Error: Please include a form group.');
-        }
-
-        if(!this.configuration){
-            throw new Error('Developer Error: Please include a configuration');
-        }
-    }
+  }
 }
