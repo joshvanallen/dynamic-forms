@@ -1,6 +1,7 @@
 export enum FormFieldType {
     TEXT,
     ADDRESS,
+    SELECT
 }
 
 export enum ErrorType {
@@ -8,6 +9,15 @@ export enum ErrorType {
     MAXLENGTH,
     MINLENGTH,
     PATTERN,
+}
+
+export interface SelectFormFieldConfiguration extends FormFieldConfiguration<string>{
+    options: SelectOptionConfiguration[];
+}
+
+export interface SelectOptionConfiguration {
+    value: string;
+    label: string;
 }
 
 export interface TextFormFieldConfiguration extends FormFieldConfiguration<string>{

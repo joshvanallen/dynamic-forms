@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FormFieldConfiguration, FormFieldType, TextFormFieldConfiguration } from '@jva/form-field/shared';
+import { FormFieldConfiguration, FormFieldType, TextFormFieldConfiguration, SelectFormFieldConfiguration } from '@jva/form-field/shared';
 
 @Component({
   selector: 'jva-root',
@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'dynamic-forms';
   values = '';
   formGroup = new FormGroup({});
-  configurations: TextFormFieldConfiguration[] = [{
+  configurations: FormFieldConfiguration<any>[] = [{
     id:'1234',
     disable:false,
     errorMessages:{},
@@ -34,7 +34,32 @@ export class AppComponent {
     value: '123',
     show:true,
     pattern: /[0-9]+/
-  }
+  } as TextFormFieldConfiguration,
+  {
+    id:'354654',
+    disable:false,
+    errorMessages: {},
+    type: FormFieldType.SELECT,
+    label:'Select',
+    required:false,
+    tooltip:'blahh',
+    value:'1234',
+    show:true,
+    options:[
+      {
+        value:'Hello',
+        label:'Hello'
+      },
+      {
+        value: '1234',
+        label: '1234'
+      },
+      {
+        value: 'World',
+        label: 'World'
+      }
+    ]
+  } as SelectFormFieldConfiguration
 ]
   constructor(){
   }

@@ -6,12 +6,16 @@ import { FormGroup } from '@angular/forms';
     selector: 'jva-declaritive-form',
     template: `
         <ng-container *ngFor="let config of configurations;">
-            <div class="display:flex; flex-direction:column">
+            <div class="form-list">
                 <jva-declaritive-form-field-renderer [formGroup]="formGroup" [configuration]="config"></jva-declaritive-form-field-renderer>
             </div>
         </ng-container>
     `,
     styles:[`
+        .form-list{
+            display:flex;
+            flex-direction:column;
+        }
     `]
 })
 export class JVADeclaritiveFormComponent{

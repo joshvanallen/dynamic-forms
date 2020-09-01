@@ -6,12 +6,16 @@ import { FormGroup } from '@angular/forms';
     selector: 'jva-implicit-form',
     template: `
         <ng-container *ngFor="let config of configurations;">
-            <div class="display:flex; flex-direction:column">
-                <jva-implicit-form-field-renderer [formGroup]="formGroup" [configuration]="config"></jva-implicit-form-field-renderer>
+            <div class="form-field-list">
+                <ng-container jvaImplicityFormFieldRender [formGroup]="formGroup" [configuration]="config"></ng-container>
             </div>
         </ng-container>
     `,
     styles:[`
+        .form-field-list {
+            display:flex;
+            flex-direction: column;
+        }
     `]
 })
 export class JVAImplicitFormComponent{

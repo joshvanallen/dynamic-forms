@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FormFieldTextModule } from '@jva/form-field/text';
-
 import { JVAImplicitFormFieldRenderer } from './implicit-form-field-renderer.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { JVAImplicitFormComponent } from './implicit-form.component';
@@ -10,7 +8,7 @@ import { JVADeclaritiveFormFieldRendererComponent } from './declaritive-form-fie
 import { JVADeclaritiveFormComponent } from './declaritive-form.component';
 
 @NgModule({
-  imports: [CommonModule, FormFieldTextModule, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   declarations: [JVAImplicitFormFieldRenderer, JVADeclaritiveFormComponent,JVAImplicitFormComponent, JVADeclaritiveFormFieldRendererComponent],
   exports: [JVAImplicitFormComponent, JVADeclaritiveFormComponent]
 })

@@ -1,7 +1,7 @@
-import { Component, Input, OnChanges, ChangeDetectionStrategy, OnInit } from "@angular/core";
+import { Component, Input, ChangeDetectionStrategy } from "@angular/core";
 import { FormGroup, FormControl, Validators, ValidatorFn } from '@angular/forms';
 
-import { TextFormFieldConfiguration, BaseFormField } from '@jva/form-field/shared';
+import { TextFormFieldConfiguration, BaseFormControl } from '@jva/form-field/shared';
 
 @Component({
     selector: 'jva-text-form-field',
@@ -19,9 +19,7 @@ import { TextFormFieldConfiguration, BaseFormField } from '@jva/form-field/share
     styles: [],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class JVATextFormFieldComponent implements OnChanges, OnInit, BaseFormField<string> {
-    @Input() formGroup: FormGroup;
-    @Input() configuration: TextFormFieldConfiguration;
+export class JVATextFormFieldComponent extends BaseFormControl<TextFormFieldConfiguration> {
 
     label: string;
     required:boolean = false;
@@ -30,10 +28,19 @@ export class JVATextFormFieldComponent implements OnChanges, OnInit, BaseFormFie
     formControl: FormControl = new FormControl();
     pattern: RegExp = null;
 
-    ngOnChanges(){
+    ngOnInit(){
+        this._inputCheck();
+        this.formControl.setValue(this.configuration.value);
+        this.formGroup.addControl(this.configuration.id, this.formControl);
+    }    
+
+    clearValue(){
+        this.formControl.setValue('');
+    }
+
+    setupField(){
         const validators: ValidatorFn[] = [];
         this._inputCheck();
-
         this.label = this.configuration.label;
         this.required = this.configuration.required;
         this.disable = this.configuration.disable;
@@ -54,17 +61,6 @@ export class JVATextFormFieldComponent implements OnChanges, OnInit, BaseFormFie
             this.formControl.setValidators(validators);
             this.formControl.updateValueAndValidity();
         }
-
-    }
-
-    ngOnInit(){
-        this._inputCheck();
-        this.formControl.setValue(this.configuration.value);
-        this.formGroup.addControl(this.configuration.id, this.formControl);
-    }    
-
-    clearValue(){
-        this.formControl.setValue('');
     }
 
     private _inputCheck(){

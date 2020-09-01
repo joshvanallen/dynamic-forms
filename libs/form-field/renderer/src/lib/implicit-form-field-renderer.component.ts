@@ -1,27 +1,20 @@
-import { Component, ComponentFactoryResolver, OnInit, Input, ComponentFactory, ViewContainerRef } from "@angular/core";
-import {FormFieldType, FormFieldConfiguration, BaseFormField} from '@jva/form-field/shared';
-import { JVATextFormFieldComponent } from '@jva/form-field/text';
+import { ComponentFactoryResolver, OnInit, Input, ComponentFactory, ViewContainerRef, Directive } from "@angular/core";
+import { FormFieldConfiguration, BaseFormControl} from '@jva/form-field/shared';
 import { FormGroup } from '@angular/forms';
-@Component({
-    selector:'jva-implicit-form-field-renderer',
-    template:`
-    `,
-    styles:[`
-    `]
+import { FormFieldService } from './form-field.service';
+
+@Directive({
+    selector:'[jvaImplicityFormFieldRender]',
 })
 export class JVAImplicitFormFieldRenderer implements OnInit {
     @Input() configuration: FormFieldConfiguration<any>;
     @Input() formGroup: FormGroup;
-
-    private formFields = {
-        [FormFieldType.TEXT]: JVATextFormFieldComponent,
-        [FormFieldType.ADDRESS]: JVATextFormFieldComponent
-    }
     
-    constructor(private _cfr:ComponentFactoryResolver, private _viewContainerRef:ViewContainerRef){}
+    constructor(private _cfr:ComponentFactoryResolver, private _viewContainerRef:ViewContainerRef, private formFieldService: FormFieldService){}
 
     ngOnInit(){
-        const factory: ComponentFactory<BaseFormField<any>> = this._cfr.resolveComponentFactory(this.formFields[this.configuration.type]);
+        const component = this.formFieldService.getField(this.configuration.type);
+        const factory: ComponentFactory<BaseFormControl<any>> = this._cfr.resolveComponentFactory(component);
         const componentRef = this._viewContainerRef.createComponent(factory);
         componentRef.instance.configuration = this.configuration;
         componentRef.instance.formGroup = this.formGroup;

@@ -46,6 +46,9 @@
     },
     "builder": {
       "tags": []
+    },
+    "form-field-select": {
+      "tags": []
     }
   }
 }
