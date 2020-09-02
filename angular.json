@@ -33,6 +33,7 @@
           },
           "configurations": {
             "production": {
+              "outputPath": "docs/",
               "fileReplacements": [
                 {
                   "replace": "apps/dynamic-forms/src/environments/environment.ts",
