@@ -28,6 +28,8 @@ jobs:
             git fetch
             git checkout github-pages
             rm -rf docs
+            git config user.name "Github Actions"
+            git config user.email "actions@github.com"
             git merge master --allow-unrelated-histories
     - name: Install Dependencies
       run: npm ci
@@ -35,8 +37,6 @@ jobs:
       run: npm run build:ci:prod --if-present
     - name: deploy to github branch
       run: |
-            git config user.name "Github Actions"
-            git config user.email "actions@github.com"
             git add ./docs/**
             git commit -m "CI Build"
             git push
