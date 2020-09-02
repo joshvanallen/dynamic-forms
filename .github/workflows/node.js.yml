@@ -28,7 +28,7 @@ jobs:
             git fetch
             git checkout github-pages
             rm -rf docs
-            git merge master
+            git merge master --allow-unrelated-histories
     - name: Install Dependencies
       run: npm ci
     - name: Builds code
