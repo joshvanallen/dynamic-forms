@@ -26,8 +26,8 @@ jobs:
     - name: Install Dependencies
       run: npm ci
     - name: Builds code
-      run: npm run build:ci:prod --if-present
-    - name: deploy to github branch
+      run: npm run build:ci:prod
+    - name: deploy to github pages
       run: |
             git fetch
             git checkout github-pages
@@ -37,6 +37,6 @@ jobs:
             git config user.name "Github Actions"
             git config user.email "actions@github.com"
             git add ./
-            git commit -m "CI Build"
+            git commit -m "CI Build" --allow-empty
             git push
       
