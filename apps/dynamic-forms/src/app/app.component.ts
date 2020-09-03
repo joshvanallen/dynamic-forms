@@ -22,7 +22,7 @@ export class AppComponent {
       disable: false,
       errorMessages: {},
       type: FormFieldType.TEXT,
-      label: 'Hello',
+      label: 'Hello1',
       required: false,
       tooltip: 'blahhh',
       value: 'World',
