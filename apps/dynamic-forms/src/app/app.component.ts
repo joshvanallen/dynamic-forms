@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+
 import {
   FormFieldConfiguration,
   FormFieldType,
@@ -47,10 +48,11 @@ export class AppComponent {
       errorMessages: {},
       type: FormFieldType.SELECT,
       label: 'Select',
-      required: false,
+      required: true,
       tooltip: 'blahh',
       value: '1234',
       show: true,
+      defaultOptionLabel:'This is null',
       options: [
         {
           value: 'Hello',

@@ -1,12 +1,12 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
-import { FormGroup, FormControl, Validators, ValidatorFn } from '@angular/forms';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { FormControl, Validators, ValidatorFn } from '@angular/forms';
 
 import { TextFormFieldConfiguration, BaseFormControl } from '@jva/form-field/shared';
 
 @Component({
   selector: 'jva-text-form-field',
   template: `
-    <mat-form-field *ngIf="show">
+    <mat-form-field appearance="fill" *ngIf="show">
       <mat-label>{{ label }}</mat-label>
       <input matInput type="text" [formControl]="formControl" [pattern]="pattern" />
       <button
@@ -19,6 +19,10 @@ import { TextFormFieldConfiguration, BaseFormControl } from '@jva/form-field/sha
       >
         <mat-icon>close</mat-icon>
       </button>
+      <mat-hint>{{this.tooltip}}</mat-hint>
+      <mat-error *ngIf="formControl.invalid">
+        {{getErrorMessage()}}
+      </mat-error>
     </mat-form-field>
 
     <p *ngIf="!show">this field is hidden</p>
@@ -33,6 +37,7 @@ export class JVATextFormFieldComponent extends BaseFormControl<TextFormFieldConf
   show: boolean = false;
   formControl: FormControl = new FormControl();
   pattern: RegExp = null;
+  tooltip: string = null;
 
   ngOnInit() {
     this._inputCheck();
@@ -52,6 +57,7 @@ export class JVATextFormFieldComponent extends BaseFormControl<TextFormFieldConf
     this.disable = this.configuration.disable;
     this.show = this.configuration.show;
     this.pattern = this.configuration.pattern;
+    this.tooltip = this.configuration.tooltip;
 
     if (this.disable || !this.show) {
       this.formControl.disable();

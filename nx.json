@@ -49,6 +49,9 @@
     },
     "form-field-select": {
       "tags": []
+    },
+    "form-field-address": {
+      "tags": []
     }
   }
 }

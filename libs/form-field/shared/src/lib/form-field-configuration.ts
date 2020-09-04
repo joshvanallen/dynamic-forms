@@ -13,6 +13,7 @@ export enum ErrorType {
 
 export interface SelectFormFieldConfiguration extends FormFieldConfiguration<string> {
   options: SelectOptionConfiguration[];
+  defaultOptionLabel: string;
 }
 
 export interface SelectOptionConfiguration {

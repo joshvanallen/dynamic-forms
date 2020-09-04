@@ -6,13 +6,17 @@ import { SelectFormFieldConfiguration, SelectOptionConfiguration, BaseFormContro
 @Component({
   selector: 'jva-select-form-field',
   template: `
-    <mat-form-field>
+    <mat-form-field appearance="fill">
       <mat-label>{{ label }}</mat-label>
       <mat-select [formControl]="formControl">
         <mat-option *ngFor="let option of options" [value]="option.value">
           {{ option.label }}
         </mat-option>
       </mat-select>
+      <mat-hint>{{this.tooltip}}</mat-hint>
+      <mat-error *ngIf="formControl.invalid">
+        {{getErrorMessage()}}
+      </mat-error>
     </mat-form-field>
   `,
   styles: [``],
@@ -25,6 +29,7 @@ export class JVASelectFormFieldComponent extends BaseFormControl<SelectFormField
   required: boolean = false;
   disable: boolean = false;
   show: boolean = false;
+  tooltip: string = null;
 
   setupField() {
     const validators: ValidatorFn[] = [];
@@ -33,7 +38,11 @@ export class JVASelectFormFieldComponent extends BaseFormControl<SelectFormField
     this.required = this.configuration.required;
     this.disable = this.configuration.disable;
     this.show = this.configuration.show;
-    this.options = this.configuration.options;
+    this.tooltip = this.configuration.tooltip;
+    this.options = this.configuration.defaultOptionLabel ? [].concat({
+      value:null,
+      label: this.configuration.defaultOptionLabel
+    }, this.configuration.options) : this.configuration.options;
 
     if (this.disable || !this.show) {
       this.formControl.disable();
