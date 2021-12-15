@@ -27,6 +27,9 @@
     }
   },
   "projects": {
+    "builder": {
+      "tags": []
+    },
     "dynamic-forms": {
       "tags": []
     },
@@ -36,22 +39,19 @@
         "dynamic-forms"
       ]
     },
+    "form-field-address": {
+      "tags": []
+    },
     "form-field-renderer": {
-      "tags": []
-    },
-    "form-field-text": {
-      "tags": []
-    },
-    "form-field-shared": {
-      "tags": []
-    },
-    "builder": {
       "tags": []
     },
     "form-field-select": {
       "tags": []
     },
-    "form-field-address": {
+    "form-field-shared": {
+      "tags": []
+    },
+    "form-field-text": {
       "tags": []
     }
   },
@@ -102,5 +102,13 @@
     "@nrwl/angular:library": {
       "unitTestRunner": "jest"
     }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
   }
 }

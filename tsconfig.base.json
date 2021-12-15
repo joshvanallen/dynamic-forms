@@ -16,13 +16,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@jva/form-field/renderer": ["libs/form-field/renderer/src/index.ts"],
-      "@jva/form-field/text": ["libs/form-field/text/src/index.ts"],
-      "@jva/form-field/shared": ["libs/form-field/shared/src/index.ts"],
-      "@jva/form-field/number": ["libs/form-field/number/src/index.ts"],
       "@jva/builder": ["libs/builder/src/index.ts"],
+      "@jva/form-field/address": ["libs/form-field/address/src/index.ts"],
+      "@jva/form-field/number": ["libs/form-field/number/src/index.ts"],
+      "@jva/form-field/renderer": ["libs/form-field/renderer/src/index.ts"],
       "@jva/form-field/select": ["libs/form-field/select/src/index.ts"],
-      "@jva/form-field/address": ["libs/form-field/address/src/index.ts"]
+      "@jva/form-field/shared": ["libs/form-field/shared/src/index.ts"],
+      "@jva/form-field/text": ["libs/form-field/text/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

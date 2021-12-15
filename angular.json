@@ -1,6 +1,44 @@
 {
   "version": 1,
   "projects": {
+    "builder": {
+      "projectType": "library",
+      "root": "libs/builder",
+      "sourceRoot": "libs/builder/src",
+      "prefix": "jva",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/builder/tsconfig.lib.json",
+              "libs/builder/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/builder/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/builder/jest.config.js",
+            "tsConfig": "libs/builder/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/builder/src/test-setup.ts"
+          },
+          "outputs": [
+            "coverage/libs/builder"
+          ]
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
     "dynamic-forms": {
       "projectType": "application",
       "schematics": {
@@ -20,7 +58,6 @@
             "main": "apps/dynamic-forms/src/main.ts",
             "polyfills": "apps/dynamic-forms/src/polyfills.ts",
             "tsConfig": "apps/dynamic-forms/tsconfig.app.json",
-            "aot": true,
             "assets": [
               "apps/dynamic-forms/src/favicon.ico",
               "apps/dynamic-forms/src/assets"
@@ -29,7 +66,13 @@
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "apps/dynamic-forms/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -63,7 +106,8 @@
           },
           "outputs": [
             "{options.outputPath}"
-          ]
+          ],
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -141,6 +185,44 @@
         }
       }
     },
+    "form-field-address": {
+      "projectType": "library",
+      "root": "libs/form-field/address",
+      "sourceRoot": "libs/form-field/address/src",
+      "prefix": "jva",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/form-field/address/tsconfig.lib.json",
+              "libs/form-field/address/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/form-field/address/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/form-field/address/jest.config.js",
+            "tsConfig": "libs/form-field/address/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/form-field/address/src/test-setup.ts"
+          },
+          "outputs": [
+            "coverage/libs/form-field/address"
+          ]
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
     "form-field-renderer": {
       "projectType": "library",
       "root": "libs/form-field/renderer",
@@ -170,120 +252,6 @@
           },
           "outputs": [
             "coverage/libs/form-field/renderer"
-          ]
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
-    "form-field-text": {
-      "projectType": "library",
-      "root": "libs/form-field/text",
-      "sourceRoot": "libs/form-field/text/src",
-      "prefix": "jva",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/form-field/text/tsconfig.lib.json",
-              "libs/form-field/text/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/form-field/text/**/*"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/form-field/text/jest.config.js",
-            "tsConfig": "libs/form-field/text/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/form-field/text/src/test-setup.ts"
-          },
-          "outputs": [
-            "coverage/libs/form-field/text"
-          ]
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
-    "form-field-shared": {
-      "projectType": "library",
-      "root": "libs/form-field/shared",
-      "sourceRoot": "libs/form-field/shared/src",
-      "prefix": "jva",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/form-field/shared/tsconfig.lib.json",
-              "libs/form-field/shared/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/form-field/shared/**/*"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/form-field/shared/jest.config.js",
-            "tsConfig": "libs/form-field/shared/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/form-field/shared/src/test-setup.ts"
-          },
-          "outputs": [
-            "coverage/libs/form-field/shared"
-          ]
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
-    "builder": {
-      "projectType": "library",
-      "root": "libs/builder",
-      "sourceRoot": "libs/builder/src",
-      "prefix": "jva",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/builder/tsconfig.lib.json",
-              "libs/builder/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/builder/**/*"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/builder/jest.config.js",
-            "tsConfig": "libs/builder/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/builder/src/test-setup.ts"
-          },
-          "outputs": [
-            "coverage/libs/builder"
           ]
         }
       },
@@ -331,35 +299,73 @@
         }
       }
     },
-    "form-field-address": {
+    "form-field-shared": {
       "projectType": "library",
-      "root": "libs/form-field/address",
-      "sourceRoot": "libs/form-field/address/src",
+      "root": "libs/form-field/shared",
+      "sourceRoot": "libs/form-field/shared/src",
       "prefix": "jva",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/form-field/address/tsconfig.lib.json",
-              "libs/form-field/address/tsconfig.spec.json"
+              "libs/form-field/shared/tsconfig.lib.json",
+              "libs/form-field/shared/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**",
-              "!libs/form-field/address/**/*"
+              "!libs/form-field/shared/**/*"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/form-field/address/jest.config.js",
-            "tsConfig": "libs/form-field/address/tsconfig.spec.json",
+            "jestConfig": "libs/form-field/shared/jest.config.js",
+            "tsConfig": "libs/form-field/shared/tsconfig.spec.json",
             "passWithNoTests": true,
-            "setupFile": "libs/form-field/address/src/test-setup.ts"
+            "setupFile": "libs/form-field/shared/src/test-setup.ts"
           },
           "outputs": [
-            "coverage/libs/form-field/address"
+            "coverage/libs/form-field/shared"
+          ]
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "form-field-text": {
+      "projectType": "library",
+      "root": "libs/form-field/text",
+      "sourceRoot": "libs/form-field/text/src",
+      "prefix": "jva",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/form-field/text/tsconfig.lib.json",
+              "libs/form-field/text/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/form-field/text/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/form-field/text/jest.config.js",
+            "tsConfig": "libs/form-field/text/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/form-field/text/src/test-setup.ts"
+          },
+          "outputs": [
+            "coverage/libs/form-field/text"
           ]
         }
       },
