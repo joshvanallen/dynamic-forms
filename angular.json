@@ -21,7 +21,10 @@
             "polyfills": "apps/dynamic-forms/src/polyfills.ts",
             "tsConfig": "apps/dynamic-forms/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/dynamic-forms/src/favicon.ico", "apps/dynamic-forms/src/assets"],
+            "assets": [
+              "apps/dynamic-forms/src/favicon.ico",
+              "apps/dynamic-forms/src/assets"
+            ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "apps/dynamic-forms/src/styles.scss"
@@ -39,7 +42,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -58,7 +60,10 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -80,8 +85,14 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/dynamic-forms/tsconfig.app.json", "apps/dynamic-forms/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!apps/dynamic-forms/**/*"]
+            "tsConfig": [
+              "apps/dynamic-forms/tsconfig.app.json",
+              "apps/dynamic-forms/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/dynamic-forms/**/*"
+            ]
           }
         },
         "test": {
@@ -91,7 +102,10 @@
             "tsConfig": "apps/dynamic-forms/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "apps/dynamic-forms/src/test-setup.ts"
-          }
+          },
+          "outputs": [
+            "coverage/apps/dynamic-forms"
+          ]
         }
       }
     },
@@ -116,8 +130,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/dynamic-forms-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/dynamic-forms-e2e/**/*"]
+            "tsConfig": [
+              "apps/dynamic-forms-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/dynamic-forms-e2e/**/*"
+            ]
           }
         }
       }
@@ -131,8 +150,14 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["libs/form-field/renderer/tsconfig.lib.json", "libs/form-field/renderer/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/form-field/renderer/**/*"]
+            "tsConfig": [
+              "libs/form-field/renderer/tsconfig.lib.json",
+              "libs/form-field/renderer/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/form-field/renderer/**/*"
+            ]
           }
         },
         "test": {
@@ -142,7 +167,10 @@
             "tsConfig": "libs/form-field/renderer/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/form-field/renderer/src/test-setup.ts"
-          }
+          },
+          "outputs": [
+            "coverage/libs/form-field/renderer"
+          ]
         }
       },
       "schematics": {
@@ -160,8 +188,14 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["libs/form-field/text/tsconfig.lib.json", "libs/form-field/text/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/form-field/text/**/*"]
+            "tsConfig": [
+              "libs/form-field/text/tsconfig.lib.json",
+              "libs/form-field/text/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/form-field/text/**/*"
+            ]
           }
         },
         "test": {
@@ -171,7 +205,10 @@
             "tsConfig": "libs/form-field/text/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/form-field/text/src/test-setup.ts"
-          }
+          },
+          "outputs": [
+            "coverage/libs/form-field/text"
+          ]
         }
       },
       "schematics": {
@@ -189,8 +226,14 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["libs/form-field/shared/tsconfig.lib.json", "libs/form-field/shared/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/form-field/shared/**/*"]
+            "tsConfig": [
+              "libs/form-field/shared/tsconfig.lib.json",
+              "libs/form-field/shared/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/form-field/shared/**/*"
+            ]
           }
         },
         "test": {
@@ -200,7 +243,10 @@
             "tsConfig": "libs/form-field/shared/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/form-field/shared/src/test-setup.ts"
-          }
+          },
+          "outputs": [
+            "coverage/libs/form-field/shared"
+          ]
         }
       },
       "schematics": {
@@ -218,8 +264,14 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["libs/builder/tsconfig.lib.json", "libs/builder/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/builder/**/*"]
+            "tsConfig": [
+              "libs/builder/tsconfig.lib.json",
+              "libs/builder/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/builder/**/*"
+            ]
           }
         },
         "test": {
@@ -229,7 +281,10 @@
             "tsConfig": "libs/builder/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/builder/src/test-setup.ts"
-          }
+          },
+          "outputs": [
+            "coverage/libs/builder"
+          ]
         }
       },
       "schematics": {
@@ -247,8 +302,14 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["libs/form-field/select/tsconfig.lib.json", "libs/form-field/select/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/form-field/select/**/*"]
+            "tsConfig": [
+              "libs/form-field/select/tsconfig.lib.json",
+              "libs/form-field/select/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/form-field/select/**/*"
+            ]
           }
         },
         "test": {
@@ -258,7 +319,10 @@
             "tsConfig": "libs/form-field/select/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/form-field/select/src/test-setup.ts"
-          }
+          },
+          "outputs": [
+            "coverage/libs/form-field/select"
+          ]
         }
       },
       "schematics": {
@@ -276,8 +340,14 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["libs/form-field/address/tsconfig.lib.json", "libs/form-field/address/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/form-field/address/**/*"]
+            "tsConfig": [
+              "libs/form-field/address/tsconfig.lib.json",
+              "libs/form-field/address/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/form-field/address/**/*"
+            ]
           }
         },
         "test": {
@@ -287,7 +357,10 @@
             "tsConfig": "libs/form-field/address/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/form-field/address/src/test-setup.ts"
-          }
+          },
+          "outputs": [
+            "coverage/libs/form-field/address"
+          ]
         }
       },
       "schematics": {
@@ -296,53 +369,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/angular",
-    "analytics": false
-  },
-  "schematics": {
-    "@nrwl/workspace": {
-      "library": {
-        "linter": "tslint"
-      }
-    },
-    "@nrwl/cypress": {
-      "cypress-project": {
-        "linter": "tslint"
-      }
-    },
-    "@nrwl/node": {
-      "application": {
-        "linter": "tslint"
-      },
-      "library": {
-        "linter": "tslint"
-      }
-    },
-    "@nrwl/nest": {
-      "application": {
-        "linter": "tslint"
-      },
-      "library": {
-        "linter": "tslint"
-      }
-    },
-    "@nrwl/express": {
-      "application": {
-        "linter": "tslint"
-      },
-      "library": {
-        "linter": "tslint"
-      }
-    },
-    "@nrwl/angular:application": {
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/angular:library": {
-      "unitTestRunner": "jest"
-    }
-  },
-  "defaultProject": "dynamic-forms"
+  }
 }
