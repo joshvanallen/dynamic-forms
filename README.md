@@ -18,5 +18,6 @@ This is the base model for the inputs
 
 Starting with:
 input[type="text]
-address field
-Nested forms
+
+
+(Demo of app)[https://jvanallen93.github.io/dynamic-forms/]
