@@ -7,19 +7,6 @@
       "sourceRoot": "libs/builder/src",
       "prefix": "jva",
       "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/builder/tsconfig.lib.json",
-              "libs/builder/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/builder/**/*"
-            ]
-          }
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
@@ -126,19 +113,6 @@
             "browserTarget": "dynamic-forms:build"
           }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "apps/dynamic-forms/tsconfig.app.json",
-              "apps/dynamic-forms/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/dynamic-forms/**/*"
-            ]
-          }
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
@@ -170,18 +144,6 @@
               "devServerTarget": "dynamic-forms:serve:production"
             }
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "apps/dynamic-forms-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/dynamic-forms-e2e/**/*"
-            ]
-          }
         }
       }
     },
@@ -191,19 +153,6 @@
       "sourceRoot": "libs/form-field/address/src",
       "prefix": "jva",
       "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/form-field/address/tsconfig.lib.json",
-              "libs/form-field/address/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/form-field/address/**/*"
-            ]
-          }
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
@@ -229,19 +178,6 @@
       "sourceRoot": "libs/form-field/renderer/src",
       "prefix": "jva",
       "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/form-field/renderer/tsconfig.lib.json",
-              "libs/form-field/renderer/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/form-field/renderer/**/*"
-            ]
-          }
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
@@ -267,19 +203,6 @@
       "sourceRoot": "libs/form-field/select/src",
       "prefix": "jva",
       "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/form-field/select/tsconfig.lib.json",
-              "libs/form-field/select/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/form-field/select/**/*"
-            ]
-          }
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
@@ -305,19 +228,6 @@
       "sourceRoot": "libs/form-field/shared/src",
       "prefix": "jva",
       "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/form-field/shared/tsconfig.lib.json",
-              "libs/form-field/shared/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/form-field/shared/**/*"
-            ]
-          }
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
@@ -343,19 +253,6 @@
       "sourceRoot": "libs/form-field/text/src",
       "prefix": "jva",
       "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/form-field/text/tsconfig.lib.json",
-              "libs/form-field/text/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/form-field/text/**/*"
-            ]
-          }
-        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {

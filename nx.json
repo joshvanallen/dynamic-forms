@@ -22,37 +22,9 @@
           "lint",
           "test",
           "e2e"
-        ]
+        ],
+        "parallel": 1
       }
-    }
-  },
-  "projects": {
-    "builder": {
-      "tags": []
-    },
-    "dynamic-forms": {
-      "tags": []
-    },
-    "dynamic-forms-e2e": {
-      "tags": [],
-      "implicitDependencies": [
-        "dynamic-forms"
-      ]
-    },
-    "form-field-address": {
-      "tags": []
-    },
-    "form-field-renderer": {
-      "tags": []
-    },
-    "form-field-select": {
-      "tags": []
-    },
-    "form-field-shared": {
-      "tags": []
-    },
-    "form-field-text": {
-      "tags": []
     }
   },
   "cli": {
