@@ -1,9 +1,14 @@
+const { getJestProjects } = require('@nrwl/jest');
+
 module.exports = {
-  testMatch: ['**/+(*.)+(spec|test).+(ts|js)?(x)'],
-  transform: {
-    '^.+\\.(ts|js|html)$': 'ts-jest',
-  },
-  resolver: '@nrwl/jest/plugins/resolver',
-  moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageReporters: ['html'],
+  projects: [
+    ...getJestProjects(),
+    '<rootDir>/apps/dynamic-forms',
+    '<rootDir>/libs/form-field/renderer',
+    '<rootDir>/libs/form-field/text',
+    '<rootDir>/libs/form-field/shared',
+    '<rootDir>/libs/builder',
+    '<rootDir>/libs/form-field/select',
+    '<rootDir>/libs/form-field/address',
+  ],
 };
