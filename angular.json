@@ -122,64 +122,6 @@
         }
       }
     },
-    "input-controls-text": {
-      "projectType": "library",
-      "root": "libs/input-controls/text",
-      "sourceRoot": "libs/input-controls/text/src",
-      "prefix": "jva",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["libs/input-controls/text/tsconfig.lib.json", "libs/input-controls/text/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/input-controls/text/**/*"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/input-controls/text/jest.config.js",
-            "tsConfig": "libs/input-controls/text/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/input-controls/text/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
-    "input-shared": {
-      "projectType": "library",
-      "root": "libs/input-shared",
-      "sourceRoot": "libs/input-shared/src",
-      "prefix": "jva",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["libs/input-shared/tsconfig.lib.json", "libs/input-shared/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/input-shared/**/*"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/input-shared/jest.config.js",
-            "tsConfig": "libs/input-shared/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/input-shared/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
-        }
-      }
-    },
     "form-field-renderer": {
       "projectType": "library",
       "root": "libs/form-field/renderer",

@@ -29,12 +29,6 @@
       "tags": [],
       "implicitDependencies": ["dynamic-forms"]
     },
-    "input-controls-text": {
-      "tags": []
-    },
-    "input-shared": {
-      "tags": []
-    },
     "form-field-renderer": {
       "tags": []
     },
