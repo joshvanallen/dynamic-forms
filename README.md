@@ -20,4 +20,4 @@ Starting with:
 input[type="text]
 
 
-[Demo of App](https://jvanallen93.github.io/dynamic-forms/)
+[Demo of App](https://joshvanallen.github.io/dynamic-forms/)
